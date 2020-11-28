@@ -41,7 +41,8 @@
       "linebreak-style": 0,
       "quotes": 0,
       "arrow-parens": 0,
-      "comma-dangle": 0
+      "comma-dangle": 0,
+      "prefer-template": 0
     }
   },
   "browserslist": [

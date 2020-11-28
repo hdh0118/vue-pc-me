@@ -39,6 +39,7 @@
               type="text"
               id="autocomplete"
               class="input-error input-xxlarge"
+              v-model="searchText"
             />
             <button
               class="sui-btn btn-xlarge btn-danger"
@@ -57,9 +58,17 @@
 <script>
 export default {
   name: "Header",
+  data() {
+    return {
+      searchText: "",
+    };
+  },
   methods: {
     search() {
-      this.$router.push("/search");
+      const { searchText } = this;
+      const params = searchText ? `/${searchText}` : "";
+      const location = "/search" + params;
+      this.$router.push(location);
     },
   },
 };

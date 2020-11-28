@@ -20,9 +20,13 @@ export default new VueRouter({
     },
     {
       path: "/register",
-      component: Register
+      component: Register,
+      meta: {
+        isFooterHide: true
+      }
     },
     {
+      name: "search",
       path: "/search/:searchText?",
       component: Search
     }

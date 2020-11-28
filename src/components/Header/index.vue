@@ -66,9 +66,31 @@ export default {
   methods: {
     search() {
       const { searchText } = this;
-      const params = searchText ? `/${searchText}` : "";
-      const location = "/search" + params;
-      this.$router.push(location);
+      // const params = searchText ? `/${searchText}` : "";
+      // const location = "/search" + params;
+      const location = {
+        name: "search",
+        // params: {
+        //   searchText,
+        // },
+        query: {
+          name: "jack",
+        },
+      };
+      if (searchText) {
+        location.params = {
+          searchText,
+        };
+      }
+      this.$router.push(
+        location,
+        (res) => {
+          console.log(res);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
     },
   },
 };

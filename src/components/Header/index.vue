@@ -83,13 +83,13 @@ export default {
         };
       }
       this.$router.push(
-        location,
-        (res) => {
+        location
+        /* (res) => {
           console.log(res);
         },
         (err) => {
           console.log(err);
-        }
+        } */
       );
     },
   },

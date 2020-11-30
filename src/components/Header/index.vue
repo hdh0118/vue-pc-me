@@ -82,6 +82,11 @@ export default {
           searchText,
         };
       }
+
+      const { categoryName } = this.$route.query;
+      location.query = {
+        categoryName,
+      };
       this.$router.push(
         location
         /* (res) => {

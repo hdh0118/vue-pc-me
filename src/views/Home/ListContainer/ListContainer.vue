@@ -291,7 +291,7 @@ export default {
   }
 }
 
-.swiper-wrapper{
+.swiper-wrapper {
   width: 720px;
   height: 455px;
   overflow: hidden;

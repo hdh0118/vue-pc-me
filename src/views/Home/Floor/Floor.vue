@@ -46,7 +46,11 @@
             <div class="floorBanner">
               <div class="swiper-container" id="floor1Swiper">
                 <div class="swiper-wrapper">
-                  <div class="swiper-slide" v-for="img in floor.carouselList" :key="img.id">
+                  <div
+                    class="swiper-slide"
+                    v-for="img in floor.carouselList"
+                    :key="img.id"
+                  >
                     <img :src="img.imgUrl" />
                   </div>
                   <!-- <div class="swiper-slide">
@@ -69,10 +73,12 @@
               <div class="floor-conver-pit">
                 <img :src="floor.recommendList[0]" />
               </div>
+
               <div class="floor-conver-pit">
                 <img :src="floor.recommendList[1]" />
               </div>
             </div>
+
             <div class="split center">
               <img :src="floor.bigImage" />
             </div>
@@ -243,7 +249,7 @@ export default {
     }
   }
 }
-.swiper-wrapper{
+.swiper-wrapper {
   width: 330px;
   height: 360px;
   overflow: hidden;

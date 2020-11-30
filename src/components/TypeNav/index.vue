@@ -14,14 +14,19 @@
         <a href="###">秒杀</a>
       </nav>
       <div class="sort">
-        <div class="all-sort-list2">
+        <div class="all-sort-list2" @click="goSearch">
           <div
             class="item bo"
             v-for="category in categoryList"
             :key="category.categoryId"
           >
             <h3>
-              <a href="">{{ category.categoryName }}</a>
+              <a
+                :data-categoryName="category.categoryName"
+                :data-categoryId="category.categoryId"
+                :data-categoryType="1"
+                >{{ category.categoryName }}</a
+              >
             </h3>
             <div class="item-list clearfix">
               <div class="subitem">
@@ -31,14 +36,24 @@
                   :key="child.categoryId"
                 >
                   <dt>
-                    <a href="">{{ child.categoryName }}</a>
+                    <a
+                      :data-categoryName="child.categoryName"
+                      :data-categoryId="child.categoryId"
+                      :data-categoryType="2"
+                      >{{ child.categoryName }}</a
+                    >
                   </dt>
                   <dd>
                     <em
                       v-for="grandChild in child.categoryChild"
                       :key="grandChild.categoryId"
                     >
-                      <a href="">{{ grandChild.categoryName }}</a>
+                      <a
+                        :data-categoryName="grandChild.categoryName"
+                        :data-categoryId="grandChild.categoryId"
+                        :data-categoryType="3"
+                        >{{ grandChild.categoryName }}</a
+                      >
                     </em>
                   </dd>
                 </dl>
@@ -69,6 +84,18 @@ export default {
   },
   methods: {
     ...mapActions(["getCategoryList"]),
+    goSearch(e) {
+      console.log(e.target);
+      const { categoryname, categoryid, categorytype } = e.target.dataset;
+      if (!categoryname) return;
+      this.$router.push({
+        name: "search",
+        query: {
+          categoryName: categoryname,
+          [`category${categorytype}Id`]: categoryid,
+        },
+      });
+    },
   },
   mounted() {
     this.getCategoryList();

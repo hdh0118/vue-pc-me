@@ -6,3 +6,17 @@ export const reqGetBaseCategoryList = () => {
     url: "/product/getBaseCategoryList"
   });
 };
+
+export const reqGetBanners = () => {
+  return request({
+    method: "GET",
+    url: "./banners"
+  });
+};
+
+export const reqGetFloors = () => {
+  return request({
+    method: "GET",
+    url: "./floors"
+  });
+};

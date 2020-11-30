@@ -3,7 +3,7 @@
     "id|+1": 1,
     "name": "@ctitle(4)",
     "keywords|4-8": ["@ctitle(3,6)"],
-    "imgUrl": "@image()",
+    "imgUrl": "@image('210x252','@color')",
     "navList|6-10": [
       {
         "url": "#",
@@ -13,10 +13,10 @@
     "carouselList|3": [
       {
         "id|+1": 1,
-        "imgUrl": "@image('200x200','@color')"
+        "imgUrl": "@image('330x360','@color')"
       }
     ],
     "recommendList|4": ["@image('200x200','@color')"],
-    "bigImage": "@image('200x200','@color')"
+    "bigImage": "@image('220x359','@color')"
   }
 ]

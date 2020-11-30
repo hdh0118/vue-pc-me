@@ -1,4 +1,5 @@
 import request from "@utils/request";
+import mockRequest from "@utils/mockRequest";
 
 export const reqGetBaseCategoryList = () => {
   return request({
@@ -8,15 +9,15 @@ export const reqGetBaseCategoryList = () => {
 };
 
 export const reqGetBanners = () => {
-  return request({
+  return mockRequest({
     method: "GET",
-    url: "./banners"
+    url: "/banners"
   });
 };
 
 export const reqGetFloors = () => {
-  return request({
+  return mockRequest({
     method: "GET",
-    url: "./floors"
+    url: "floors"
   });
 };

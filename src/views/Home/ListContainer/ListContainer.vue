@@ -5,8 +5,8 @@
         <!--banner轮播-->
         <div class="swiper-container" id="mySwiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img src="./images/banner1.jpg" />
+            <div class="swiper-slide" v-for="img in banners" :key="img.id">
+              <img :src="img.imgUrl" />
             </div>
             <!-- <div class="swiper-slide">
               <img src="./images/banner2.jpg" />
@@ -289,5 +289,11 @@ export default {
       }
     }
   }
+}
+
+.swiper-wrapper{
+  width: 720px;
+  height: 455px;
+  overflow: hidden;
 }
 </style>

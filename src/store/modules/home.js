@@ -15,6 +15,7 @@ export default {
 
     async getBanners({ commit }) {
       const banners = await reqGetBanners();
+      console.log(banners);
       commit("GET_BANNERS", banners);
     },
 

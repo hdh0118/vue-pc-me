@@ -24,6 +24,7 @@
           <!-- 如果需要导航按钮 -->
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
+          <div class="swiper-scrollbar"></div>
         </div>
       </div>
       <div class="right">
@@ -101,6 +102,10 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
+import Swiper, { Navigation, Pagination, Scrollbar } from "swiper";
+import "swiper/swiper-bundle.min.css";
+
+Swiper.use([Navigation, Pagination, Scrollbar]);
 
 export default {
   name: "ListContainer",
@@ -112,8 +117,26 @@ export default {
   methods: {
     ...mapActions(["getBanners"]),
   },
-  mounted() {
-    this.getBanners();
+  async mounted() {
+    await this.getBanners();
+    setTimeout(() => {
+      new Swiper(".swiper-container", {
+        loop: true,
+
+        pagination: {
+          el: ".swiper-pagination",
+        },
+
+        navigation: {
+          nextEl: ".swiper-button-prev",
+          prevEl: ".swiper-button-next",
+        },
+
+        scrollbar: {
+          el: ".swiper-scrollbar",
+        },
+      });
+    }, 1000);
   },
 };
 </script>
@@ -289,11 +312,5 @@ export default {
       }
     }
   }
-}
-
-.swiper-wrapper {
-  width: 720px;
-  height: 455px;
-  overflow: hidden;
 }
 </style>

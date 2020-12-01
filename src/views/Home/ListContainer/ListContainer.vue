@@ -3,29 +3,7 @@
     <div class="sortList clearfix">
       <div class="center">
         <!--banner轮播-->
-        <div class="swiper-container" id="mySwiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide" v-for="img in banners" :key="img.id">
-              <img :src="img.imgUrl" />
-            </div>
-            <!-- <div class="swiper-slide">
-              <img src="./images/banner2.jpg" />
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/banner3.jpg" />
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/banner4.jpg" />
-            </div> -->
-          </div>
-          <!-- 如果需要分页器 -->
-          <div class="swiper-pagination"></div>
-
-          <!-- 如果需要导航按钮 -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-scrollbar"></div>
-        </div>
+        <Carousel :getBanners="banners" />
       </div>
       <div class="right">
         <div class="news">
@@ -102,13 +80,13 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
-import Swiper, { Navigation, Pagination, Scrollbar } from "swiper";
-import "swiper/swiper-bundle.min.css";
-
-Swiper.use([Navigation, Pagination, Scrollbar]);
+import Carousel from "@comps/Carousel";
 
 export default {
   name: "ListContainer",
+  components: {
+    Carousel,
+  },
   computed: {
     ...mapState({
       banners: (state) => state.home.banners,
@@ -119,24 +97,6 @@ export default {
   },
   async mounted() {
     await this.getBanners();
-    setTimeout(() => {
-      new Swiper(".swiper-container", {
-        loop: true,
-
-        pagination: {
-          el: ".swiper-pagination",
-        },
-
-        navigation: {
-          nextEl: ".swiper-button-prev",
-          prevEl: ".swiper-button-next",
-        },
-
-        scrollbar: {
-          el: ".swiper-scrollbar",
-        },
-      });
-    }, 1000);
   },
 };
 </script>

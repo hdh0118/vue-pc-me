@@ -5,7 +5,10 @@
         <h3 class="fl">家用电器</h3>
         <div class="fr">
           <ul class="nav-tabs clearfix">
-            <li class="active">
+            <li v-for="(nav, index) in floor.navList" :key="index">
+              <a href="nav.url">{{ nav.text }}</a>
+            </li>
+            <!-- <li class="active">
               <a href="#tab1" data-toggle="tab">热门</a>
             </li>
             <li>
@@ -25,7 +28,7 @@
             </li>
             <li>
               <a href="#tab7" data-toggle="tab">高端电器</a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -34,39 +37,14 @@
           <div class="floor-1">
             <div class="blockgary">
               <ul class="jd-list">
-                <li>节能补贴</li>
-                <li>4K电视</li>
-                <li>空气净化器</li>
-                <li>IH电饭煲</li>
-                <li>滚筒洗衣机</li>
-                <li>电热水器</li>
+                <li v-for="(keyword, index) in floor.keywords" :key="index">
+                  {{ keyword }}
+                </li>
               </ul>
               <img :src="floor.imgUrl" />
             </div>
             <div class="floorBanner">
-              <div class="swiper-container" id="floor1Swiper">
-                <div class="swiper-wrapper">
-                  <div
-                    class="swiper-slide"
-                    v-for="img in floor.carouselList"
-                    :key="img.id"
-                  >
-                    <img :src="img.imgUrl" />
-                  </div>
-                  <!-- <div class="swiper-slide">
-                      <img src="./images/floor-1-b02.png">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="./images/floor-1-b03.png">
-                    </div> -->
-                </div>
-                <!-- 如果需要分页器 -->
-                <div class="swiper-pagination"></div>
-
-                <!-- 如果需要导航按钮 -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-              </div>
+              <Carousel :getBanners="floor.carouselList" />
             </div>
             <div class="split">
               <span class="floor-x-line"></span>
@@ -100,18 +78,16 @@
 
 <script>
 // import { mapActions } from "vuex";
+import Carousel from "@comps/Carousel";
 
 export default {
   name: "Floor",
+  components: {
+    Carousel,
+  },
   props: {
     floor: Object,
   },
-  // methods: {
-  //   ...mapActions(["getFloors"]),
-  // },
-  // mounted() {
-  //   this.getFloors();
-  // },
 };
 </script>
 

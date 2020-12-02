@@ -87,16 +87,19 @@ export default {
       location.query = {
         categoryName,
       };
-      this.$router.push(
-        location
-        /* (res) => {
-          console.log(res);
-        },
-        (err) => {
-          console.log(err);
-        } */
-      );
+      // this.$router.push(location);
+
+      if (this.$route.path.includes("/search")) {
+        this.$router.replace(location);
+      } else {
+        this.$router.push(location);
+      }
     },
+  },
+  mounted() {
+    this.$bus.$on("clearKeyword", () => {
+      this.searchText = "";
+    });
   },
 };
 </script>

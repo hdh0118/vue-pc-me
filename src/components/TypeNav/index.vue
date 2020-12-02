@@ -132,7 +132,11 @@ export default {
           searchText,
         };
       }
-      this.$router.push(location);
+      if (this.$route.path.includes("/search")) {
+        this.$router.replace(location);
+      } else {
+        this.$router.push(location);
+      }
     },
   },
   mounted() {

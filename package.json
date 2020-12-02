@@ -57,7 +57,8 @@
       "import/prefer-default-export": 0,
       "import/no-extraneous-dependencies": 0,
       "no-new": 0,
-      "object-curly-newline": 0
+      "object-curly-newline": 0,
+      "no-unused-vars": 0
     }
   },
   "browserslist": [

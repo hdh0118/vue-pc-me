@@ -8,6 +8,7 @@ import "./style/reset.css";
 import "./plugins/element.js";
 
 import "./mock/mockServer";
+import "./style/iconfont.css";
 
 Vue.config.productionTip = false;
 Vue.prototype.$bus = new Vue();

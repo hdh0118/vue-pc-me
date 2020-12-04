@@ -103,9 +103,9 @@
               <li class="yui3-u-1-5" v-for="goods in goodsList" :key="goods.id">
                 <div class="list-wrap">
                   <div class="p-img">
-                    <a href="item.html" target="_blank"
+                    <router-link :to="`/detail/${goods.id}`"
                       ><img :src="goods.defaultImg"
-                    /></a>
+                    /></router-link>
                   </div>
                   <div class="price">
                     <strong>
@@ -140,24 +140,12 @@
             </ul>
           </div>
 
-          <el-pagination
-            @size-change="handleSizeChange"
-            @current-change="handleCurrentChange"
+          <Pagination
             :current-page="options.pageNo"
             :pager-count="7"
-            :page-sizes="[5, 10, 15, 20]"
             :page-size="5"
-            background
-            layout="
-              prev,
-              pager,
-              next,
-              total,
-              sizes,
-              jumper"
             :total="total"
-          >
-          </el-pagination>
+          />
         </div>
       </div>
     </div>
@@ -167,6 +155,7 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import TypeNav from "@comps/TypeNav";
+import Pagination from "@comps/Pagination";
 import SearchSelector from "./SearchSelector/SearchSelector";
 
 export default {
@@ -193,6 +182,7 @@ export default {
   components: {
     SearchSelector,
     TypeNav,
+    Pagination,
   },
   computed: {
     ...mapGetters(["goodsList", "total"]),

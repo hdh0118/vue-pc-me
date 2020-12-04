@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+import Detail from "@views/Detail";
 import Home from "../views/Home";
 import Login from "../views/Login";
 import Register from "../views/Register";
@@ -51,6 +52,14 @@ export default new VueRouter({
       name: "search",
       path: "/search/:searchText?",
       component: Search
+    },
+    {
+      path: "/detail/:id",
+      component: Detail
     }
-  ]
+  ],
+
+  scrollBehavior() {
+    return { x: 0, y: 0 };
+  }
 });

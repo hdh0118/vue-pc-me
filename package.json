@@ -65,7 +65,9 @@
       "space-before-blocks": 0,
       "spaced-comment": 0,
       "one-var-declaration-per-line": 0,
-      "one-var": 0
+      "one-var": 0,
+      "vue/no-unused-vars": 0,
+      "max-len": 0
     }
   },
   "browserslist": [

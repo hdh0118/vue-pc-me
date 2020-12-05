@@ -5,7 +5,9 @@ export default {
     productDetail: {
       categoryView: {},
       spuSaleAttrList: [],
-      skuInfo: {}
+      skuInfo: {
+        skuImageList: []
+      }
     }
   },
   getters: {

@@ -6,6 +6,8 @@ import Home from "../views/Home";
 import Login from "../views/Login";
 import Register from "../views/Register";
 import Search from "../views/Search";
+import ShopCart from "../views/ShopCart";
+import AddCartSuccess from "../views/AddCartSuccess";
 
 const push = VueRouter.prototype.push;
 const replace = VueRouter.prototype.replace;
@@ -56,6 +58,16 @@ export default new VueRouter({
     {
       path: "/detail/:id",
       component: Detail
+    },
+    {
+      name: "shopcart",
+      path: "/shopcart",
+      component: ShopCart
+    },
+    {
+      name: "addcartsuccess",
+      path: "/addcartsuccess",
+      component: AddCartSuccess
     }
   ],
 

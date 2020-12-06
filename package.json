@@ -13,6 +13,7 @@
     "element-ui": "^2.4.5",
     "nprogress": "^0.2.0",
     "swiper": "^6.3.5",
+    "uuid": "^8.3.1",
     "vue": "^2.6.11",
     "vue-router": "^3.4.9",
     "vuex": "^3.6.0"
@@ -67,7 +68,8 @@
       "one-var-declaration-per-line": 0,
       "one-var": 0,
       "vue/no-unused-vars": 0,
-      "max-len": 0
+      "max-len": 0,
+      "no-param-reassign": 0
     }
   },
   "browserslist": [

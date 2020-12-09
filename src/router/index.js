@@ -1,7 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+import Pay from "@views/Pay";
+import PaySuccess from "@views/PaySuccess";
+import Trade from "@views/Trade";
+import Center from "@views/Center";
 import Detail from "@views/Detail";
+import store from "@store";
 import Home from "../views/Home";
 import Login from "../views/Login";
 import Register from "../views/Register";
@@ -29,14 +34,14 @@ VueRouter.prototype.replace = function (location, onComplete, onAbort) {
 };
 
 Vue.use(VueRouter);
-
-export default new VueRouter({
+const router = new VueRouter({
   routes: [
     {
       path: "/",
       component: Home
     },
     {
+      name: "login",
       path: "/login",
       component: Login,
       meta: {
@@ -68,6 +73,26 @@ export default new VueRouter({
       name: "addcartsuccess",
       path: "/addcartsuccess",
       component: AddCartSuccess
+    },
+    {
+      name: "trade",
+      path: "/trade",
+      component: Trade
+    },
+    {
+      name: "pay",
+      path: "/pay",
+      component: Pay
+    },
+    {
+      name: "paysuccess",
+      path: "/paysuccess",
+      component: PaySuccess
+    },
+    {
+      name: "center",
+      path: "/center/myorder",
+      component: Center
     }
   ],
 
@@ -75,3 +100,10 @@ export default new VueRouter({
     return { x: 0, y: 0 };
   }
 });
+
+const permissionPaths = ["/trade", "/pay", "/center"];
+router.beforeEach((to, from, next) => {
+  if (permissionPaths.indexOf(to.path) > -1 && !store.state.user.token) return next("/login");
+  next();
+});
+export default router;
